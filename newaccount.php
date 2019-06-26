@@ -1,13 +1,17 @@
 <?php
+include('bdd.php');
 
-$pass_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+$id_membres = $_POST['id_membres'];
 $pseudo = $_POST['pseudo'];
-$level = $_POST['level']
+$mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+$id_level = $_POST['id_level'];
 
-$req = $bdd->prepare('INSERT INTO membres(pseudo, mdp, level) VALUES(pseudo, mdp, level)');
+$req = $bdd->prepare("INSERT INTO membres (id_membres, pseudo, mdp, id_level) VALUES('$id_membres', '$pseudo' , '$mdp', '$id_level')");
 $req->execute(array(
+    'id_membres' => $id_membres,
     'pseudo' => $pseudo,
-    'mdp' => $pass_hache,
-    'level' => $level));
-
+    'mdp' => $mdp,
+    'id_level' => $id_level));
+    header('Location: connexion.php');
+            exit();
 ?>
