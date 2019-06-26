@@ -1,6 +1,9 @@
 <?php
 include('bdd.php');
 
+if (isset($_POST['pseudo'])) {
+$pseudo = $_POST['pseudo'];
+
 $req = $bdd->prepare('SELECT id_membres, mdp FROM membres WHERE pseudo = :pseudo');
 $req->execute(array(
     'pseudo' => $pseudo));
@@ -23,8 +26,8 @@ else
     else {
         echo 'Mauvais identifiant ou mot de passe !';
     }
+  }
 }
-
 ?>
 
 <form method="post">
