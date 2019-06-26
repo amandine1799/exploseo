@@ -7,7 +7,6 @@
         <input type="hidden" name="id_membres" maxlength="32"/><br/>
         Pseudo: <input type="text" name="pseudo" maxlength="32"/><br/>
         Mot de passe: <input type="password" name="mdp" maxlength="16"/>
-        Type: <input type="text" name="id_level" maxlength="32"/><br/>
         <br />
         <input type="submit" value="Enregistrer"/>
     </form>
