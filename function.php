@@ -3,9 +3,9 @@
 function get_cms($bdd, $idcms) {
     $resCms = $bdd->prepare("SELECT * FROM informations WHERE id_informations=?");
     $resCms->execute(array($idcms));
-    $onecms = $resCms->fetch();
+    $cms = $resCms->fetch();
     $resCms->closeCursor();
-    return $onecms;
+    return $cms;
 }
 
 function get_allcms($bdd) {
