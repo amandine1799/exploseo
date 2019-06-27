@@ -1,5 +1,7 @@
 <?php
-include('bdd.php');
+$title = "Connexion";
+include('header.php');
+
 
 if (isset($_POST['pseudo'])) {
 $pseudo = $_POST['pseudo'];
@@ -22,6 +24,8 @@ else
         $_SESSION['id_membres'] = $resultat['id_membres'];
         $_SESSION['pseudo'] = $pseudo;
         echo 'Vous êtes connecté !';
+        header('Location: index.php?id=1');
+                exit();
     }
     else {
         echo 'Mauvais identifiant ou mot de passe !';

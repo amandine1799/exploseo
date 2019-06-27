@@ -1,5 +1,6 @@
 <?php
-include('bdd.php');
+$title = "Nouveau Compte";
+include('header.php');
 
 $selected_level = "0";
 if (isset($_GET['level'])) {
@@ -9,6 +10,7 @@ if (isset($_GET['level'])) {
 function get_levels($bdd) {
     return $bdd->query("SELECT * FROM level");
 }
+
 $levels = get_levels($bdd);
 ?>
 
