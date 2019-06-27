@@ -21,6 +21,7 @@ else
 {
     if ($isPasswordCorrect) {
         session_start();
+        $_SESSION['level'] = $resultat['id_level'];
         $_SESSION['id_membres'] = $resultat['id_membres'];
         $_SESSION['pseudo'] = $pseudo;
         echo 'Vous êtes connecté !';

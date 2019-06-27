@@ -2,7 +2,10 @@
 $title = "CMS";
 include('header.php');
 
-$resCms = get_cms($bdd, $_GET['id']);
+$id = $_GET['id'];
+
+$cms = $bdd->query("SELECT * FROM informations WHERE id_cms = $id");
+
 ?>
 <table class="table table-dark">
 <thead>
@@ -26,31 +29,28 @@ $resCms = get_cms($bdd, $_GET['id']);
 </thead>
 <tbody>
 <?php
-  while($cms = $resCms->fetch())
+  while($rescms = $cms->fetch())
   {
     ?>
 <tr>
-  <th scope="row"><?php echo $cms["id_informations"]; ?></th>
-  <td><?php echo $cms["url"]; ?></td>
-  <td><?php echo $cms["version"]; ?></td>
-  <td><?php echo $cms["tel"]; ?></td>
-  <td><?php echo $cms["mail"]; ?></td>
-  <td><?php echo $cms["siret"]; ?></td>
-  <td><?php echo $cms["woocommerce"]; ?></td>
-  <td><?php echo $cms["raisonsociale"]; ?></td>
-  <td><?php echo $cms["ville"]; ?></td>
-  <td><?php echo $cms["codepostal"]; ?></td>
-  <td><?php echo $cms["adresse"]; ?></td>
-  <td><?php echo $cms["datecreation"]; ?></td>
-  <td><?php echo $cms["dirigeant"]; ?></td>
-  <td><?php echo $cms["speedmobile"]; ?></td>
-  <td><?php echo $cms["speedcomputer"]; ?></td>
+  <th scope="row"><?php echo $rescms["id_cms"]; ?></th>
+  <td><?php echo $rescms["url"]; ?></td>
+  <td><?php echo $rescms["version"]; ?></td>
+  <td><?php echo $rescms["tel"]; ?></td>
+  <td><?php echo $rescms["mail"]; ?></td>
+  <td><?php echo $rescms["siret"]; ?></td>
+  <td><?php echo $rescms["woocommerce"]; ?></td>
+  <td><?php echo $rescms["raisonsociale"]; ?></td>
+  <td><?php echo $rescms["ville"]; ?></td>
+  <td><?php echo $rescms["codepostal"]; ?></td>
+  <td><?php echo $rescms["adresse"]; ?></td>
+  <td><?php echo $rescms["datecreation"]; ?></td>
+  <td><?php echo $rescms["dirigeant"]; ?></td>
+  <td><?php echo $rescms["speedmobile"]; ?></td>
+  <td><?php echo $rescms["speedcomputer"]; ?></td>
 </tr>
 <?php
   }
   ?>
 </tbody>
 </table>
-<?php
-  $resCms->closeCursor();
-  ?>
