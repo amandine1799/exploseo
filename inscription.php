@@ -1,6 +1,6 @@
 <?php
 $title = "Nouveau Compte";
-include('header.php');
+include('bdd.php');
 
 $selected_level = "0";
 if (isset($_GET['level'])) {

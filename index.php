@@ -8,7 +8,7 @@ $cms = $bdd->query("SELECT * FROM informations WHERE id_cms = $id");
 
 ?>
 <div class="table-responsive">
-  <table class="table table-striped table-dark" style="width:100%;" id="table">
+  <table class="table table-striped table-dark" id="table">
     <thead>
       <tr>
         <th scope="col">URL</th>

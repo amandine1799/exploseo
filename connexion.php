@@ -1,6 +1,6 @@
 <?php
 $title = "Connexion";
-include('header.php');
+include('bdd.php');
 
 
 if (isset($_POST['pseudo'])) {
