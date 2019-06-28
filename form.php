@@ -7,6 +7,11 @@
   </head>
 
   <body>
+  <style>
+
+  
+
+  </style>
 
     <?php
     try
@@ -34,42 +39,58 @@
           $speedmobile = htmlspecialchars($_POST['speedmobile']);
           $speedcomputer = htmlspecialchars($_POST['speedcomputer']);
           $id_cms = $_POST['id_cms'];
+          if(!empty($_POST['url']) AND !empty($_POST['version']) AND !empty($_POST['tel'])
+          AND !empty($_POST['mail']) AND !empty($_POST['siret']) AND !empty($_POST['woocommerce'])
+          AND !empty($_POST['raisonsociale']) AND !empty($_POST['ville']) AND !empty($_POST['codepostal'])
+          AND !empty($_POST['adresse']) AND !empty($_POST['datecreation']) AND !empty($_POST['dirigeant'])
+          AND !empty($_POST['speedmobile']) AND !empty($_POST['speedcomputer']) AND !empty($_POST['id_cms'])) {
+            $requrl = $bdd->prepare("SELECT url FROM infos WHERE url = ?");
+            $requrl->execute(array($url));
+            $urlexist = $requrl->rowCount();
+            if($urlexist == 0) {
 
+              $req = $bdd->prepare("INSERT INTO infos(url, version, tel, mail, siret, woocommerce, raisonsociale, ville, codepostal, adresse, datecreation, dirigeant, speedmobile, speedcomputer, id_cms) VALUES(:url, :version, :tel, :mail, :siret, :woocommerce, :raisonsociale, :ville, :codepostal, :adresse, :datecreation, :dirigeant, :speedmobile, :speedcomputer, :id_cms)");
+              $req->execute(array(
+                'url'=> $url,
+                'version'=> $version,
+                'tel'=> $tel,
+                'mail'=> $mail,
+                'siret'=> $siret,
+                'woocommerce'=> $woocommerce,
+                'raisonsociale'=> $raisonsociale,
+                'ville'=> $ville,
+                'codepostal'=> $codepostal,
+                'adresse'=> $adresse,
+                'datecreation'=> $datecreation,
+                'dirigeant'=> $dirigeant,
+                'speedmobile'=> $speedmobile,
+                'speedcomputer'=> $speedcomputer,
+                'id_cms'=> $id_cms));
 
-          $req = $bdd->prepare("INSERT INTO infos(url, version, tel, mail, siret, woocommerce, raisonsociale, ville, codepostal, adresse, datecreation, dirigeant, speedmobile, speedcomputer, id_cms) VALUES(:url, :version, :tel, :mail, :siret, :woocommerce, :raisonsociale, :ville, :codepostal, :adresse, :datecreation, :dirigeant, :speedmobile, :speedcomputer, :id_cms)");
-          $req->execute(array(
-            'url'=> $url,
-            'version'=> $version,
-            'tel'=> $tel,
-            'mail'=> $mail,
-            'siret'=> $siret,
-            'woocommerce'=> $woocommerce,
-            'raisonsociale'=> $raisonsociale,
-            'ville'=> $ville,
-            'codepostal'=> $codepostal,
-            'adresse'=> $adresse,
-            'datecreation'=> $datecreation,
-            'dirigeant'=> $dirigeant,
-            'speedmobile'=> $speedmobile,
-            'speedcomputer'=> $speedcomputer,
-            'id_cms'=> $id_cms));
-        }
+                $bravo = "Le site a bien été intégré à la base de données !";
+             } else {
+                $erreur = "Url déjà existante !";
+             }
+          } else {
+       $erreur = "Tous doit être remplis !";
+          }
+       }
       ?>
 
     <center><form method="POST" action="" >
       <table>
           CMS:
-          <input type="radio" name="id_cms" value="1" id="wordpress"/><label for="wordpress">Wordpress</label>
+          <input type="radio" name="id_cms" value="1" id="wordpress" checked="checked" /><label for="wordpress">Wordpress</label>
           <input type="radio" name="id_cms" value="2" id="prestashop" /><label for="prestashop">Prestashop</label>
           <input type="radio" name="id_cms" value="3" id="magkit" /><label for="magkit">Magkit</label>
           <input type="radio" name="id_cms" value="4" id="magento" /><label for="magento">Magento</label>
           <input type="radio" name="id_cms" value="5" id="micrologiciel" /><label for="micrologiciel">Micrologiciel</label>
           <input type="radio" name="id_cms" value="6" id="shopify" /><label for="shopify">Shopify</label>
           <input type="radio" name="id_cms" value="7" id="opencart" /><label for="opencart">Opencart</label>
-          </br/><br />
+          <br /><br />
           Woocommerce:
           <input type="radio" name="woocommerce" value="oui" id="oui" /> <label for="oui">Oui</label>
-          <input type="radio" name="woocommerce" value="non" id="non" /> <label for="non">Non</label>
+          <input type="radio" name="woocommerce" value="non" id="non" checked="checked" /> <label for="non">Non</label>
           <tr><td><label>Version:</label></td><td><input type="text" name="version" /></td></tr>
           <tr><td><label>URL:</label></td><td><input type="text" name="url" /></td></tr>
           <tr><td><label>Téléphone:</label></td><td><input type="text" name="tel" /></td></tr>
@@ -84,9 +105,21 @@
           <tr><td><label>Google PageSpeed Insights mobile:</label></td><td><input type="text" name="speedmobile" /></td></tr>
           <tr><td><label>Google PageSpeed Insights ordinateur:</label></td><td><input type="text" name="speedcomputer" /></td></tr>
       </table>
-      </br/>
+      <br />
       <input type="submit" name="forminfos" value="Valider" />
+      <br /><br />
+
+      <?php
+      if(isset($bravo)) {
+         echo '<font color="green">'.$bravo.'</font>';
+      }
+
+      if(isset($erreur)) {
+         echo '<font color="red">'.$erreur.'</font>';
+      }
+      ?>
+
     </form></center>
-    
+
   </body>
 </html>
