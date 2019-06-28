@@ -6,10 +6,38 @@
       <link rel="stylesheet" href="style.css">
   </head>
 
+  <?php
+  include('header.php');
+  ?>
+
   <body>
   <style>
 
-  
+      body{
+      background-color: #454d55;
+    }
+
+      input[type=text]{
+      padding: 4px 4px;
+      margin: 2px 0;
+    }
+
+      input[type=submit]{
+      background-color: #343a40;
+      border: none;
+      color: #cccecf;
+      padding: 15px 30px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+      input[type=submit]:hover{
+      color: white;
+    }
+
+      label, p{
+      color: #cccecf;
+    }
 
   </style>
 
@@ -77,49 +105,54 @@
        }
       ?>
 
-    <center><form method="POST" action="" >
-      <table>
-          CMS:
-          <input type="radio" name="id_cms" value="1" id="wordpress" checked="checked" /><label for="wordpress">Wordpress</label>
-          <input type="radio" name="id_cms" value="2" id="prestashop" /><label for="prestashop">Prestashop</label>
-          <input type="radio" name="id_cms" value="3" id="magkit" /><label for="magkit">Magkit</label>
-          <input type="radio" name="id_cms" value="4" id="magento" /><label for="magento">Magento</label>
-          <input type="radio" name="id_cms" value="5" id="micrologiciel" /><label for="micrologiciel">Micrologiciel</label>
-          <input type="radio" name="id_cms" value="6" id="shopify" /><label for="shopify">Shopify</label>
-          <input type="radio" name="id_cms" value="7" id="opencart" /><label for="opencart">Opencart</label>
-          <br /><br />
-          Woocommerce:
-          <input type="radio" name="woocommerce" value="oui" id="oui" /> <label for="oui">Oui</label>
-          <input type="radio" name="woocommerce" value="non" id="non" checked="checked" /> <label for="non">Non</label>
-          <tr><td><label>Version:</label></td><td><input type="text" name="version" /></td></tr>
-          <tr><td><label>URL:</label></td><td><input type="text" name="url" /></td></tr>
-          <tr><td><label>Téléphone:</label></td><td><input type="text" name="tel" /></td></tr>
-          <tr><td><label>Mail:</label></td><td><input type="text" name="mail" /></td></tr>
-          <tr><td><label>Siret:</label></td><td><input type="text" name="siret" /></td></tr>
-          <tr><td><label>Adresse:</label></td><td><input type="text" name="adresse" /></td></tr>
-          <tr><td><label>Code postal:</label></td><td><input type="text" name="codepostal" /></td></tr>
-          <tr><td><label>Ville:</label></td><td><input type="text" name="ville" /></td></tr>
-          <tr><td><label>Raison Sociale:</label></td><td><input type="text" name="raisonsociale" /></td></tr>
-          <tr><td><label>Dirigeant:</label></td><td><input type="text" name="dirigeant" /></td></tr>
-          <tr><td><label>Date de création:</label></td><td><input type="text" name="datecreation" /></td></tr>
-          <tr><td><label>Google PageSpeed Insights mobile:</label></td><td><input type="text" name="speedmobile" /></td></tr>
-          <tr><td><label>Google PageSpeed Insights ordinateur:</label></td><td><input type="text" name="speedcomputer" /></td></tr>
-      </table>
-      <br />
-      <input type="submit" name="forminfos" value="Valider" />
-      <br /><br />
+    <br />
+    <div align="center">
+      <form method="POST" action="" >
+        <table>
+            <p>
+            CMS:
+            <input type="radio" name="id_cms" value="1" id="wordpress" checked="checked" /><label for="wordpress">Wordpress</label>&nbsp;
+            <input type="radio" name="id_cms" value="2" id="prestashop" /><label for="prestashop">Prestashop</label>&nbsp;
+            <input type="radio" name="id_cms" value="3" id="magkit" /><label for="magkit">Magkit</label>&nbsp;
+            <input type="radio" name="id_cms" value="4" id="magento" /><label for="magento">Magento</label>&nbsp;
+            <input type="radio" name="id_cms" value="5" id="micrologiciel" /><label for="micrologiciel">Micrologiciel</label>&nbsp;
+            <input type="radio" name="id_cms" value="6" id="shopify" /><label for="shopify">Shopify</label>&nbsp;
+            <input type="radio" name="id_cms" value="7" id="opencart" /><label for="opencart">Opencart</label>
+            <br /></p>
+            <p>
+            Woocommerce:
+            <input type="radio" name="woocommerce" value="oui" id="oui" /> <label for="oui">Oui</label>&nbsp;
+            <input type="radio" name="woocommerce" value="non" id="non" checked="checked" /> <label for="non">Non</label>
+            <br /></p>
+            <tr><td align="right"><label>Version:</label></td><td><input type="text" name="version" /></td></tr>
+            <tr><td align="right"><label>URL:</label></td><td><input type="text" name="url" /></td></tr>
+            <tr><td align="right"><label>Téléphone:</label></td><td><input type="text" name="tel" /></td></tr>
+            <tr><td align="right"><label>Mail:</label></td><td><input type="text" name="mail" /></td></tr>
+            <tr><td align="right"><label>Siret:</label></td><td><input type="text" name="siret" /></td></tr>
+            <tr><td align="right"><label>Adresse:</label></td><td><input type="text" name="adresse" /></td></tr>
+            <tr><td align="right"><label>Code postal:</label></td><td><input type="text" name="codepostal" /></td></tr>
+            <tr><td align="right"><label>Ville:</label></td><td><input type="text" name="ville" /></td></tr>
+            <tr><td align="right"><label>Raison Sociale:</label></td><td><input type="text" name="raisonsociale" /></td></tr>
+            <tr><td align="right"><label>Dirigeant:</label></td><td><input type="text" name="dirigeant" /></td></tr>
+            <tr><td align="right"><label>Date de création:</label></td><td><input type="text" name="datecreation" /></td></tr>
+            <tr><td align="right"><label>Google PageSpeed Insights mobile:</label></td><td><input type="text" name="speedmobile" /></td></tr>
+            <tr><td align="right"><label>Google PageSpeed Insights ordinateur:</label></td><td><input type="text" name="speedcomputer" /></td></tr>
+        </table>
+        <br />
+        <input type="submit" name="forminfos" value="Valider" />
+        <br /><br />
 
-      <?php
-      if(isset($bravo)) {
-         echo '<font color="green">'.$bravo.'</font>';
-      }
+        <?php
+        if(isset($bravo)) {
+           echo '<font color="green">'.$bravo.'</font>';
+        }
 
-      if(isset($erreur)) {
-         echo '<font color="red">'.$erreur.'</font>';
-      }
-      ?>
+        if(isset($erreur)) {
+           echo '<font color="red">'.$erreur.'</font>';
+        }
+        ?>
 
-    </form></center>
-
+      </form>
+    </div>
   </body>
 </html>

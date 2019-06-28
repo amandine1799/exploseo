@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 26 juin 2019 à 07:23
+-- Généré le :  ven. 28 juin 2019 à 11:59
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -51,30 +51,37 @@ INSERT INTO `cms` (`id_cms`, `nom_cms`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `informations`
+-- Structure de la table `infos`
 --
 
-DROP TABLE IF EXISTS `informations`;
-CREATE TABLE IF NOT EXISTS `informations` (
-  `id_informations` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `infos`;
+CREATE TABLE IF NOT EXISTS `infos` (
+  `id_infos` int(11) NOT NULL AUTO_INCREMENT,
   `url` text NOT NULL,
   `version` varchar(50) DEFAULT NULL,
   `tel` varchar(50) DEFAULT NULL,
+  `woocommerce` varchar(50) DEFAULT NULL,
   `mail` varchar(255) DEFAULT NULL,
   `siret` varchar(50) DEFAULT NULL,
-  `woocommerce` int(11) DEFAULT NULL,
   `raisonsociale` varchar(255) DEFAULT NULL,
   `ville` varchar(255) DEFAULT NULL,
-  `codepostal` int(11) DEFAULT NULL,
+  `codepostal` varchar(50) DEFAULT NULL,
   `adresse` text,
-  `datecreation` date DEFAULT NULL,
+  `datecreation` varchar(255) DEFAULT NULL,
   `dirigeant` varchar(255) DEFAULT NULL,
-  `speedmobile` int(11) DEFAULT NULL,
-  `speedcomputer` int(11) DEFAULT NULL,
-  `id_cms` int(11) NOT NULL,
-  PRIMARY KEY (`id_informations`),
-  KEY `informations_cms_FK` (`id_cms`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `speedmobile` varchar(50) DEFAULT NULL,
+  `speedcomputer` varchar(50) DEFAULT NULL,
+  `id_cms` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_infos`),
+  KEY `id_test_cms` (`id_cms`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `infos`
+--
+
+INSERT INTO `infos` (`id_infos`, `url`, `version`, `tel`, `woocommerce`, `mail`, `siret`, `raisonsociale`, `ville`, `codepostal`, `adresse`, `datecreation`, `dirigeant`, `speedmobile`, `speedcomputer`, `id_cms`) VALUES
+(36, 'www.mdr.fr', '1.3.3', '0616225609', 'non', 'jackie@lol.com', '56789657', 'cio lol tg', 'Villers semeuse', '08000', 'cora', '10/12/2100', 'jackie', '0616225609', '34', 5);
 
 -- --------------------------------------------------------
 
@@ -118,10 +125,10 @@ CREATE TABLE IF NOT EXISTS `membres` (
 --
 
 --
--- Contraintes pour la table `informations`
+-- Contraintes pour la table `infos`
 --
-ALTER TABLE `informations`
-  ADD CONSTRAINT `informations_cms_FK` FOREIGN KEY (`id_cms`) REFERENCES `cms` (`id_cms`);
+ALTER TABLE `infos`
+  ADD CONSTRAINT `infos_ibfk_1` FOREIGN KEY (`id_cms`) REFERENCES `cms` (`id_cms`);
 
 --
 -- Contraintes pour la table `membres`
