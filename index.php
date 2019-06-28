@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+  if (isset($_SESSION['level'])) {
+  }else{
+    header("Location:connexion.php");
+  }
+
 $title = "CMS";
 include('header.php');
 
@@ -25,6 +32,13 @@ $cms = $bdd->query("SELECT * FROM infos WHERE id_cms = $id");
         <th scope="col">Dirigeant</th>
         <th scope="col">Vitesse sur Téléphone</th>
         <th scope="col">Vitesse sur Ordinateur</th>
+        <?php
+        if($_SESSION['level'] == 2){
+          ?>
+          <th scope="col">Supprimer</th>
+        <?php
+        }
+         ?>
       </tr>
     </thead>
     <tbody>
@@ -47,6 +61,13 @@ $cms = $bdd->query("SELECT * FROM infos WHERE id_cms = $id");
         <td><?php echo $rescms["dirigeant"]; ?></td>
         <td><?php echo $rescms["speedmobile"]; ?></td>
         <td><?php echo $rescms["speedcomputer"]; ?></td>
+        <?php
+        if($_SESSION['level'] == 2){
+          ?>
+          <td>supprimer</td>
+        <?php
+        }
+         ?>
       </tr>
       <?php
   }

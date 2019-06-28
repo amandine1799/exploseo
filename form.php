@@ -1,3 +1,8 @@
+<?php
+session_start();
+if (isset($_SESSION['id_membres']) AND isset($_SESSION['pseudo']))
+{
+  ?>
 <!doctype html>
 <html lang="fr">
   <head>
@@ -159,3 +164,9 @@
     </div>
   </body>
 </html>
+<?php
+}
+else {
+  echo '<a href="connexion.php">Veuillez vous connecter</a>';
+  }
+?>

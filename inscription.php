@@ -33,6 +33,10 @@ $levels = get_levels($bdd);
     <br />
     <input type="submit" value="Enregistrer" />
   </form>
+  <?php if(isset($erreur)) {
+      echo $erreur;
+  }
+  ?>
 </body>
 
 </html>

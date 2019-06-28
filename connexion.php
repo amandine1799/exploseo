@@ -6,7 +6,7 @@ include('bdd.php');
 if (isset($_POST['pseudo'])) {
 $pseudo = $_POST['pseudo'];
 
-$req = $bdd->prepare('SELECT id_membres, mdp FROM membres WHERE pseudo = :pseudo');
+$req = $bdd->prepare('SELECT id_membres, mdp, id_level FROM membres WHERE pseudo = :pseudo');
 $req->execute(array(
     'pseudo' => $pseudo));
 $resultat = $req->fetch();
@@ -24,7 +24,6 @@ else
         $_SESSION['level'] = $resultat['id_level'];
         $_SESSION['id_membres'] = $resultat['id_membres'];
         $_SESSION['pseudo'] = $pseudo;
-        echo 'Vous êtes connecté !';
         header('Location: index.php?id=1');
                 exit();
     }
@@ -33,12 +32,14 @@ else
     }
   }
 }
+
 ?>
 
 <form method="post">
+
     <input type="hidden" name="id_membres" maxlength="32"/><br/>
     Pseudo: <input type="text" name="pseudo" maxlength="32"/><br/>
     Mot de passe: <input type="password" name="mdp" maxlength="16"/>
     <br />
-    <input type="submit" value="Enregistrer"/>
+    <input type="submit" value="Connexion"/>
 </form>

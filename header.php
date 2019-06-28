@@ -10,11 +10,11 @@ $allcms = get_allcms($bdd);
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="dataTables.bootstrap4.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <script type ="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-    <link href="dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="dataTables.bootstrap4.min.js"></script>
     <title><?php echo $title ?></title>
   </head>
 
@@ -34,6 +34,6 @@ $allcms = get_allcms($bdd);
         </ul>
       </div>
       <form class="form-inline my-2 my-lg-0">
-        <a class="btn btn-dark" href="connexion.php"><i class="fas fa-sign-in-alt"></i></a>
+        <a class="btn btn-dark" href="deconnexion.php"><i class="fas fa-sign-in-alt"></i></a>
       </form>
     </nav>
