@@ -20,6 +20,9 @@
       input[type=text]{
       padding: 4px 4px;
       margin: 2px 0;
+      border: none;
+      border-bottom: 1px solid #cccecf;
+      background-color: #454d55;
     }
 
       input[type=submit]{
@@ -144,7 +147,7 @@
 
         <?php
         if(isset($bravo)) {
-           echo '<font color="green">'.$bravo.'</font>';
+           echo '<font color="#4caf50">'.$bravo.'</font>';
         }
 
         if(isset($erreur)) {
