@@ -16,56 +16,60 @@
       catch(Exception $e)
     {
       die('Erreur : '.$e->getMessage());
-    }
+    };
 
-  if(isset($_POST['forminfos'])) {
-    $version = htmlspecialchars($_POST['version']);
-    $url = htmlspecialchars($_POST['url']);
-    $tel = htmlspecialchars($_POST['tel']);
-    $mail = htmlspecialchars($_POST['mail']);
-    $siret = htmlspecialchars($_POST['siret']);
-    $adresse = htmlspecialchars($_POST['adresse']);
-    $codepostal = htmlspecialchars($_POST['codepostal']);
-    $ville = htmlspecialchars($_POST['ville']);
-    $raisonsociale = htmlspecialchars($_POST['raisonsociale']);
-    $dirigeant = htmlspecialchars($_POST['dirigeant']);
-    $datecreation = htmlspecialchars($_POST['datecreation']);
-    $speedmobile = htmlspecialchars($_POST['speedmobile']);
-    $speedcomputer = htmlspecialchars($_POST['speedcomputer']);
+        if(isset($_POST['forminfos'])) {
+          $url = htmlspecialchars($_POST['url']);
+          $version = htmlspecialchars($_POST['version']);
+          $tel = htmlspecialchars($_POST['tel']);
+          $mail = htmlspecialchars($_POST['mail']);
+          $siret = htmlspecialchars($_POST['siret']);
+          $woocommerce = $_POST['woocommerce'];
+          $raisonsociale = htmlspecialchars($_POST['raisonsociale']);
+          $ville = htmlspecialchars($_POST['ville']);
+          $codepostal = htmlspecialchars($_POST['codepostal']);
+          $adresse = htmlspecialchars($_POST['adresse']);
+          $datecreation = htmlspecialchars($_POST['datecreation']);
+          $dirigeant = htmlspecialchars($_POST['dirigeant']);
+          $speedmobile = htmlspecialchars($_POST['speedmobile']);
+          $speedcomputer = htmlspecialchars($_POST['speedcomputer']);
+          $id_cms = $_POST['id_cms'];
 
-    $req = $bdd->prepare("INSERT INTO informations(version, url, tel, mail, siret, adresse, codepostal, ville, raisonsociale, dirigeant, datecreation, speedmobile, speedcomputer) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $req->execute(array($version, $url, $tel, $mail, $siret, $adresse, $codepostal, $ville, $raisonsociale, $dirigeant, $datecreation, $speedmobile, $speedcomputer));
-      //'version' => $version,
-      //'url' => $url,
-      //'tel' => $tel,
-      //'mail' => $mail,
-      //'siret' => $siret,
-      //'adresse' => $adresse,
-      //'codepostal' => $codepostal,
-      //'ville' => $ville,
-      //'raisonsociale' => $raisonsociale,
-      //'dirigeant' => $dirigeant,
-      //'datecreation' => $datecreation,
-      //'speedmobile' => $speedmobile,
-      //'speedcomputer' => $speedcomputer));
-  }
+
+          $req = $bdd->prepare("INSERT INTO infos(url, version, tel, mail, siret, woocommerce, raisonsociale, ville, codepostal, adresse, datecreation, dirigeant, speedmobile, speedcomputer, id_cms) VALUES(:url, :version, :tel, :mail, :siret, :woocommerce, :raisonsociale, :ville, :codepostal, :adresse, :datecreation, :dirigeant, :speedmobile, :speedcomputer, :id_cms)");
+          $req->execute(array(
+            'url'=> $url,
+            'version'=> $version,
+            'tel'=> $tel,
+            'mail'=> $mail,
+            'siret'=> $siret,
+            'woocommerce'=> $woocommerce,
+            'raisonsociale'=> $raisonsociale,
+            'ville'=> $ville,
+            'codepostal'=> $codepostal,
+            'adresse'=> $adresse,
+            'datecreation'=> $datecreation,
+            'dirigeant'=> $dirigeant,
+            'speedmobile'=> $speedmobile,
+            'speedcomputer'=> $speedcomputer,
+            'id_cms'=> $id_cms));
+        }
       ?>
 
     <center><form method="POST" action="" >
       <table>
-          <!--CMS:
-          <input type="radio" name="cms" value="wordpress" id="wordpress" /> <label for="wordpress">Wordpress</label>
-          <input type="radio" name="cms" value="prestashop" id="prestashop" /> <label for="prestashop">Prestashop</label>
-          <input type="radio" name="cms" value="magkit" id="magkit" /> <label for="magkit">Magkit</label>
-          <input type="radio" name="cms" value="magento" id="magento" /> <label for="magento">Magento</label>
-          <input type="radio" name="cms" value="micrologiciel" id="micrologiciel" /> <label for="micrologiciel">Micrologiciel</label>
-          <input type="radio" name="cms" value="shopify" id="shopify" /> <label for="shopify">Shopify</label>
-          <input type="radio" name="cms" value="opencart" id="opencart" /> <label for="opencart">Opencart</label>
-          <br /><br />
+          CMS:
+          <input type="radio" name="id_cms" value="1" id="wordpress"/><label for="wordpress">Wordpress</label>
+          <input type="radio" name="id_cms" value="2" id="prestashop" /><label for="prestashop">Prestashop</label>
+          <input type="radio" name="id_cms" value="3" id="magkit" /><label for="magkit">Magkit</label>
+          <input type="radio" name="id_cms" value="4" id="magento" /><label for="magento">Magento</label>
+          <input type="radio" name="id_cms" value="5" id="micrologiciel" /><label for="micrologiciel">Micrologiciel</label>
+          <input type="radio" name="id_cms" value="6" id="shopify" /><label for="shopify">Shopify</label>
+          <input type="radio" name="id_cms" value="7" id="opencart" /><label for="opencart">Opencart</label>
+          </br/><br />
           Woocommerce:
           <input type="radio" name="woocommerce" value="oui" id="oui" /> <label for="oui">Oui</label>
           <input type="radio" name="woocommerce" value="non" id="non" /> <label for="non">Non</label>
-        </br/><br />-->
           <tr><td><label>Version:</label></td><td><input type="text" name="version" /></td></tr>
           <tr><td><label>URL:</label></td><td><input type="text" name="url" /></td></tr>
           <tr><td><label>Téléphone:</label></td><td><input type="text" name="tel" /></td></tr>
@@ -83,6 +87,6 @@
       </br/>
       <input type="submit" name="forminfos" value="Valider" />
     </form></center>
-
+    
   </body>
 </html>
