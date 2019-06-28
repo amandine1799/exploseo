@@ -26,7 +26,6 @@ $levels = get_levels($bdd);
     Pseudo: <input type="text" name="pseudo" maxlength="32" /><br />
     Mot de passe: <input type="password" name="mdp" maxlength="16" /><br />
     <select name="id_level">
-      <option value="0">Choix</option>
       <?php while($level = $levels->fetch()): ?>
       <option <?php if ($level['id_level'] == $selected_level): ?> selected<?php endif; ?> value="<?php echo $level['id_level'] ?>"><?php echo $level["statut_level"]; ?></option>
       <?php endwhile; ?>
