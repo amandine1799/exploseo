@@ -4,7 +4,7 @@ include('header.php');
 
 $id = $_GET['id'];
 
-$cms = $bdd->query("SELECT * FROM informations WHERE id_cms = $id");
+$cms = $bdd->query("SELECT * FROM infos WHERE id_cms = $id");
 
 ?>
 <div class="table-responsive">
@@ -32,7 +32,7 @@ $cms = $bdd->query("SELECT * FROM informations WHERE id_cms = $id");
   while($rescms = $cms->fetch())
   {
     ?>
-      <tr>
+      <tr style="background-color:#454d55;">
         <td><?php echo $rescms["url"]; ?></td>
         <td><?php echo $rescms["version"]; ?></td>
         <td><?php echo $rescms["tel"]; ?></td>
