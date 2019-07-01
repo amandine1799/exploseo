@@ -36,9 +36,9 @@ $allcms = get_allcms($bdd);
       <form class="form-inline my-2 my-lg-0">
         <?php
         if($_SESSION['level'] == 2){
-        echo '<a class="btn btn-dark" href="form.php"><i class="far fa-lightbulb"></i></a>';
+        echo '<a class="btn btn-dark" title="Formulaire" href="form.php"><i class="far fa-lightbulb"></i></a>';
         }
         ?>
-        <a class="btn btn-dark" href="deconnexion.php"><i class="fas fa-power-off"></i></a>
+        <a class="btn btn-dark" title="Déconnexion" href="deconnexion.php"><i class="fas fa-power-off"></i></a>
       </form>
     </nav>

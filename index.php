@@ -32,6 +32,7 @@ $cms = $bdd->query("SELECT * FROM infos WHERE id_cms = $id");
         <th scope="col">Dirigeant</th>
         <th scope="col">Vitesse sur Téléphone</th>
         <th scope="col">Vitesse sur Ordinateur</th>
+        <th scope="col">Sécurité</th>
         <?php
         if($_SESSION['level'] == 2){
           ?>
@@ -61,6 +62,7 @@ $cms = $bdd->query("SELECT * FROM infos WHERE id_cms = $id");
         <td><?php echo $rescms["dirigeant"]; ?></td>
         <td><?php echo $rescms["speedmobile"]; ?></td>
         <td><?php echo $rescms["speedcomputer"]; ?></td>
+        <td><?php echo $rescms["secure"]; ?></td>
         <?php
         if($_SESSION['level'] == 2){
           ?>
