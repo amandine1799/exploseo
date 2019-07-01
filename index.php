@@ -32,7 +32,7 @@ $cms = $bdd->query("SELECT * FROM infos WHERE id_cms = $id");
         <th scope="col">Dirigeant</th>
         <th scope="col">Vitesse sur Téléphone</th>
         <th scope="col">Vitesse sur Ordinateur</th>
-        <th scope="col">Sécurité</th>
+        <th scope="col">Sécurisé</th>
         <?php
         if($_SESSION['level'] == 2){
           ?>
