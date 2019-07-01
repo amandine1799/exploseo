@@ -3,6 +3,9 @@ session_start();
 if (isset($_SESSION['id_membres']) AND isset($_SESSION['pseudo']))
 {
   ?>
+  <?php
+  if($_SESSION['level'] == 2){
+    ?>
 <!doctype html>
 <html lang="fr">
   <head>
@@ -28,6 +31,7 @@ if (isset($_SESSION['id_membres']) AND isset($_SESSION['pseudo']))
       border: none;
       border-bottom: 1px solid #cccecf;
       background-color: #454d55;
+      color: #cccecf;
     }
 
       input[type=submit]{
@@ -164,6 +168,12 @@ if (isset($_SESSION['id_membres']) AND isset($_SESSION['pseudo']))
     </div>
   </body>
 </html>
+<?php
+}
+else {
+  echo '<a href="index.php?id=1">Retour à l\'index.</a>';
+  }
+ ?>
 <?php
 }
 else {

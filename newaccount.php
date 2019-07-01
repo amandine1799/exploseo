@@ -30,9 +30,6 @@ $reqacc = $bdd->prepare("SELECT pseudo FROM membres WHERE pseudo = ?");
     $erreur = "Tout doit être complété";
 
 }
-
-
-
     header('Location: inscription.php');
             exit();
 ?>
