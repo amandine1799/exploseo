@@ -37,6 +37,7 @@ $levels = get_levels($bdd);
       echo $erreur;
   }
   ?>
+  <a href="connexion.php">Se Connecter</a>
 </body>
 
 </html>

@@ -43,3 +43,4 @@ else
     <br />
     <input type="submit" value="Connexion"/>
 </form>
+<a href="inscription.php">S'inscrire</a>
