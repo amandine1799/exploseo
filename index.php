@@ -78,7 +78,6 @@ $cms = $bdd->query("SELECT * FROM infos WHERE id_cms = $id");
 <script>
 $(document).ready(function() {
     var table = $('#table').DataTable( {
-        scrollY:        "300px",
         scrollX:        true,
         scrollCollapse: true,
         fixedColumns:   {

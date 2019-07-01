@@ -20,7 +20,7 @@ $allcms = get_allcms($bdd);
 
   <body>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href=""><strong>BDD</strong></a>
+      <a class="navbar-brand" href="index.php?id=1"><strong>BDD</strong></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,6 +34,11 @@ $allcms = get_allcms($bdd);
         </ul>
       </div>
       <form class="form-inline my-2 my-lg-0">
-        <a class="btn btn-dark" href="deconnexion.php"><i class="fas fa-sign-in-alt"></i></a>
+        <?php
+        if($_SESSION['level'] == 2){
+        echo '<a class="btn btn-dark" href="form.php"><i class="far fa-lightbulb"></i></a>';
+        }
+        ?>
+        <a class="btn btn-dark" href="deconnexion.php"><i class="fas fa-power-off"></i></a>
       </form>
     </nav>
