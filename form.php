@@ -78,18 +78,19 @@ if (isset($_SESSION['id_membres']) AND isset($_SESSION['pseudo']))
           $dirigeant = htmlspecialchars($_POST['dirigeant']);
           $speedmobile = htmlspecialchars($_POST['speedmobile']);
           $speedcomputer = htmlspecialchars($_POST['speedcomputer']);
+          $secure = $_POST['secure'];
           $id_cms = $_POST['id_cms'];
           if(!empty($_POST['url']) AND !empty($_POST['version']) AND !empty($_POST['tel'])
           AND !empty($_POST['mail']) AND !empty($_POST['siret']) AND !empty($_POST['woocommerce'])
           AND !empty($_POST['raisonsociale']) AND !empty($_POST['ville']) AND !empty($_POST['codepostal'])
           AND !empty($_POST['adresse']) AND !empty($_POST['datecreation']) AND !empty($_POST['dirigeant'])
-          AND !empty($_POST['speedmobile']) AND !empty($_POST['speedcomputer']) AND !empty($_POST['id_cms'])) {
+          AND !empty($_POST['speedmobile']) AND !empty($_POST['speedcomputer']) AND !empty($_POST['secure']) AND !empty($_POST['id_cms'])) {
             $requrl = $bdd->prepare("SELECT url FROM infos WHERE url = ?");
             $requrl->execute(array($url));
             $urlexist = $requrl->rowCount();
             if($urlexist == 0) {
 
-              $req = $bdd->prepare("INSERT INTO infos(url, version, tel, mail, siret, woocommerce, raisonsociale, ville, codepostal, adresse, datecreation, dirigeant, speedmobile, speedcomputer, id_cms) VALUES(:url, :version, :tel, :mail, :siret, :woocommerce, :raisonsociale, :ville, :codepostal, :adresse, :datecreation, :dirigeant, :speedmobile, :speedcomputer, :id_cms)");
+              $req = $bdd->prepare("INSERT INTO infos(url, version, tel, mail, siret, woocommerce, raisonsociale, ville, codepostal, adresse, datecreation, dirigeant, speedmobile, speedcomputer, secure, id_cms) VALUES(:url, :version, :tel, :mail, :siret, :woocommerce, :raisonsociale, :ville, :codepostal, :adresse, :datecreation, :dirigeant, :speedmobile, :speedcomputer, :secure, :id_cms)");
               $req->execute(array(
                 'url'=> $url,
                 'version'=> $version,
@@ -105,6 +106,7 @@ if (isset($_SESSION['id_membres']) AND isset($_SESSION['pseudo']))
                 'dirigeant'=> $dirigeant,
                 'speedmobile'=> $speedmobile,
                 'speedcomputer'=> $speedcomputer,
+                'secure'=> $secure,
                 'id_cms'=> $id_cms));
 
                 $bravo = "Le site a bien été intégré à la base de données !";
@@ -136,6 +138,11 @@ if (isset($_SESSION['id_membres']) AND isset($_SESSION['pseudo']))
             <input type="radio" name="woocommerce" value="oui" id="oui" /> <label for="oui">Oui</label>&nbsp;
             <input type="radio" name="woocommerce" value="non" id="non" checked="checked" /> <label for="non">Non</label>
             <br /></p>
+            <p>
+            Sécurisé:
+            <input type="radio" name="secure" value="oui" id="oui" /> <label for="oui">Oui</label>&nbsp;
+            <input type="radio" name="secure" value="non" id="non" checked="checked" /> <label for="non">Non</label>
+            </p>
             <tr><td align="right"><label>Version:</label></td><td><input type="text" name="version" /></td></tr>
             <tr><td align="right"><label>URL:</label></td><td><input type="text" name="url" /></td></tr>
             <tr><td align="right"><label>Téléphone:</label></td><td><input type="text" name="tel" /></td></tr>
